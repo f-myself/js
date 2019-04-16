@@ -31,40 +31,51 @@ Calc.prototype.getNum2 = function () {
 
 Calc.prototype.sum = function() {
 	if (this.NaNChecker()) {
-		return this.num1 + this.num2;
+		this.result = this.num1 + this.num2;
+		return true;
 	}
 	return false;
 }
 
 Calc.prototype.sub = function() {
 	if (this.NaNChecker()) {
-		return this.num1 - this.num2;
+		this.result = this.num1 - this.num2;
+		return true;
 	}
 	return false;
 }
 
 Calc.prototype.multi = function() {
 	if (this.NaNChecker()) {
-		return this.num1 * this.num2;
+		this.result = this.num1 * this.num2;
+		return true;
 	}
 	return false;
 }
 
 Calc.prototype.division = function () {
 	if (this.NaNChecker()) {
-		var result = this.num1 / this.num2
-		return result.toFixed(2);
+		this.result = this.num1 / this.num2
+		return true;
 	}
 	return false;
+}
+
+Calc.prototype.getResult = function (){
+	return this.result;
 }
 
 var calc = new Calc (12, 34);
 console.log('Number 1: ' + calc.getNum1());
 console.log('Number 2: ' + calc.getNum2());
 console.log('Summa: ' + calc.sum());
+console.log('Result is: ' + calc.getResult());
 console.log('Substraction: ' + calc.sub());
+console.log('Result is: ' + calc.getResult());
 console.log('Multiply: ' + calc.multi());
+console.log('Result is: ' + calc.getResult());
 console.log('Division: ' + calc.division());
+console.log('Result is: ' + calc.getResult());
 console.log("Now let's set new params for calc");
 console.log('Changing num1: ' + calc.setNum1(44));
 console.log('Now number 1 is ' + calc.getNum1());
